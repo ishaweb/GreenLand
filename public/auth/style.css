@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:"Poppins", sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(90deg, #e2e2e2 , #73946B);
+}
+.form-container{
+    position: relative;
+    width: 850px;
+    height: 550px;
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .2);
+    margin: 20px;
+    overflow: hidden;
+    transition: .6s ease-in-out 1.2s , visibility 0s 1s;
+}
+.form-box.register {
+    visibility: hidden;
+}
+.form-container.active .form-box.login{
+     visibility: hidden;
+}
+.form-container.active .form-box.register {
+    visibility: visible;
+
+}
+.form-container.active .form-box {
+    right: 50%;
+
+}
+.form-box {
+    position: absolute;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: #333;
+    text-align: center;
+    padding: 40px;
+    z-index:1;
+}
+.form-box  form {
+    width: 100%;
+}
+.form-container h1 {
+    font-size: 36px;
+    margin: -10px 0;
+}
+.form-container .input-box {
+    position: relative;
+    margin: 30px 0;
+}
+.form-container .input-box input {
+    width: 100%;
+    padding:13px 50px 13px 20px;
+    background: #eee;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+}
+
+.form-container .input-box input::placeholder{
+    color: #888;
+    font-weight: 400;
+}
+.form-container .input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #888;
+}
+.form-container .forget-link {
+  margin: -15px 0 15px;   
+}
+.form-container .forget-link a {
+    font-size: 14.3px;
+    color: #333;
+    text-decoration: none;
+
+}
+.form-container .btn {
+    width: 100%;
+    height: 48px;
+    background-color: #27391C;
+    border-radius:8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    border: none;
+    cursor: pointer;
+    font-size: 17px;
+    color: #e2e2e2;
+    font-weight: 600;
+}
+.toggle-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.toggle-box::before {
+    content: '';
+    position:absolute;
+    left: -250%;
+    width: 300%;
+    height: 100%;
+    background: #73946B;
+    border-radius: 150px;
+    z-index: 2;
+    transition: 1.8s ease-in-out;
+}
+.form-container.active .toggle-box::before{
+    left: 50%;
+}
+.toggle-box .toggle-panel {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2; 
+    transition: .6s ease-in-out;
+}
+.toggle-box .toggle-panel.toggle-left{
+    left: 0;
+    transition-delay: 1.2s;
+}
+.form-container.active .toggle-panel.toggle-left {
+    left: -50%;
+    transition-delay: .6s;
+}
+
+.toggle-box .toggle-panel.toggle-right {
+    right: -50%;
+    transition-delay: .6s;
+}
+.form-container.active .toggle-panel.toggle-right{
+    right: 0;
+    transition-delay:1.2s ;
+}
+
+.toggle-box .toggle-panel iframe {
+    width: 100%;
+    height: 50%;
+    border: none;
+}
+.toggle-box .toggle-panel p {
+    margin-bottom: 20px;
+
+}
+.toggle-box .toggle-panel .btn {
+    width: 160px;
+    height: 46px;
+    background:transparent;
+    border: 2px solid #fff;
+    box-shadow: none;
+}
+
+@media screen and (max-width:650px) {
+    .form-container {
+        height:calc(100vh-40px);
+    }
+    .form-container .form-box {
+        bottom: 0;
+        width: 100%;
+        height:70%;
+    }
+    .form-container.active .form-box {
+        right: 0;
+        bottom:25%;
+    }
+     .toggle-box::before{
+        left: 0;
+        top: -265%;
+        width: 100%;
+        height: 300%;
+    }
+    .form-container.active .toggle-box::before{
+        left: 0;
+        top: 80%;
+    }
+    .form-container .toggle-box .toggle-panel iframe {
+         visibility: hidden;
+    }
+    .form-container .toggle-panel {
+        width: 100%;
+        height: 30%;
+    }
+    .form-container .toggle-panel.toggle-left{
+        top: 0;
+    }
+    .form-container.active .toggle-panel.toggle-left{
+        left: 0;
+        top: -30%;
+    }
+    .form-container .toggle-panel.toggle-right {
+        right: 0;
+        bottom: -30%;
+    }
+    .form-container.active .toggle-panel.toggle-right{
+        bottom: 0;
+    }
+}
+
+.toggle-box .toggle-panel {
+    pointer-events: none;
+}
+.toggle-box .toggle-panel .btn {
+    pointer-events: auto;
+}
