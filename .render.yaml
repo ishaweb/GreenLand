@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: gardening-laravel
+    name: garderning-laravel
     env: docker
     plan: free
     region: oregon

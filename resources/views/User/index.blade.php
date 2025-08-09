@@ -84,10 +84,10 @@
       <!-- Product -->
       <div class="product">
           <div class="product-section">
-              <div class="product-filter">
+              {{--  <div class="product-filter">
                   <img src="{{ asset('assets\image\all.jpg') }}" alt="">
                   <p class="filter-item active"  data-filter="all">All</p>
-              </div>
+              </div>  --}}
                <div class="product-filter">
                   <img src="{{ asset('assets/image/indoor&outdoor.avif') }}" alt="">
                   <select class="filter-select filter-item"id="categorySelect">
@@ -153,7 +153,7 @@
                       <img  class="card__img" src="{{ asset('storage/' . $p->image) }}" alt="image">
                       <div class="card__data">
                           <h2 class="card__title">{{ $p->Name }}</h2>
-                          <span class="card__description">{{ $p->price }}</span>
+                          <span class="card__description">RS {{ $p->price }}</span>
                           @auth
                           <a href="{{ route('add_to_cart', $p->id) }}" class="card__button">Add to Cart</a>
                           @endauth

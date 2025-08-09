@@ -61,8 +61,8 @@ class PlantController extends Controller
          $validation = $req->validate([
               "name" => 'required|string',
               "S_name"=>"required|string",
-              "quantity"=> "required|numeric",
-              "price"=> "required|numeric",
+              "quantity"=> "required|alpha_dash",
+              "price"=> "required|alpha_dash",
               'file' => 'required|image|mimes:jpeg,png,jpg|max:2048',
                "category"=>"required|string",
                 "Stock"=>"required|boolean"

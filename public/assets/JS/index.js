@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
  AOS.init({
     duration: 1000, // animation duration in ms
-    once: true // only animate once
+    // once: true // only animate once
   });
 
 
